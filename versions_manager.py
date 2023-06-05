@@ -7,10 +7,10 @@ class VersionManager:
 
             try:
                 self.major_version = int(version_parts[0])
-                self.minor_version = int(version_parts[1]) if len(version_parts) >= 1 else 0
-                self.patch_version = int(version_parts[2]) if len(version_parts) >= 2 else 0
+                self.minor_version = int(version_parts[1]) if len(version_parts) > 1 else 0
+                self.patch_version = int(version_parts[2]) if len(version_parts) > 2 else 0
             except ValueError:
-                print("Error occurred while parsing version!")
+                raise Exception("Error occurred while parsing version!")
         else:
             self.major_version = 0
             self.minor_version = 0
